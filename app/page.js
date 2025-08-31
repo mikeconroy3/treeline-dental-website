@@ -187,7 +187,7 @@ export default function Page() {
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <a key="preventative-diagnostic" href="/services/preventative-diagnostic" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/preventative-diagnostic.jpg alt="Preventative & Diagnostic" className="h-full w-full object-cover" />
+              <img src={"/services/preventative-diagnostic.jpg"} alt="Preventative & Diagnostic" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Preventative & Diagnostic</h3>
@@ -196,7 +196,7 @@ export default function Page() {
           </a>
           <a key="gum-disease" href="/services/gum-disease" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/gum-disease.jpg alt="Gum Disease" className="h-full w-full object-cover" />
+              <img src={"/services/gum-disease.jpg"} alt="Gum Disease" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Gum Disease</h3>
@@ -205,7 +205,7 @@ export default function Page() {
           </a>
           <a key="family-dentist" href="/services/family-dentist" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/family-dentist.jpg alt="Family Dentist" className="h-full w-full object-cover" />
+              <img src={"/services/family-dentist.jpg"} alt="Family Dentist" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Family Dentist</h3>
@@ -214,7 +214,7 @@ export default function Page() {
           </a>
           <a key="same-day-services" href="/services/same-day-services" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/same-day-services.jpg alt="Same-Day Services" className="h-full w-full object-cover" />
+              <img src={"/services/same-day-services.jpg"} alt="Same-Day Services" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Same-Day Services</h3>
@@ -223,7 +223,7 @@ export default function Page() {
           </a>
           <a key="in-house-cerec-crowns" href="/services/in-house-cerec-crowns" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/in-house-cerec-crowns.jpg alt="In-House CEREC Crowns" className="h-full w-full object-cover" />
+              <img src={"/services/in-house-cerec-crowns.jpg"} alt="In-House CEREC Crowns" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">In-House CEREC Crowns</h3>
@@ -232,7 +232,7 @@ export default function Page() {
           </a>
           <a key="dental-implants" href="/services/dental-implants" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/dental-implants.jpg alt="Dental Implants" className="h-full w-full object-cover" />
+              <img src={"/services/dental-implants.jpg"} alt="Dental Implants" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Dental Implants</h3>
@@ -241,7 +241,7 @@ export default function Page() {
           </a>
           <a key="sleep-related-conditions" href="/services/sleep-related-conditions" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/sleep-related-conditions.jpg alt="Sleep-Related Conditions" className="h-full w-full object-cover" />
+              <img src={"/services/sleep-related-conditions.jpg"} alt="Sleep-Related Conditions" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Sleep-Related Conditions</h3>
@@ -250,7 +250,7 @@ export default function Page() {
           </a>
           <a key="facial-esthetics" href="/services/facial-esthetics" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
             <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
-              <img src=/services/facial-esthetics.jpg alt="Facial Esthetics" className="h-full w-full object-cover" />
+              <img src={"/services/facial-esthetics.jpg"} alt="Facial Esthetics" className="h-full w-full object-cover" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-slate-900">Facial Esthetics</h3>
