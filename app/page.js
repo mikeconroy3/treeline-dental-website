@@ -6,6 +6,9 @@ export const fetchCache = 'force-no-store';
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
+const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
+const getBookingHref = () => (BOOKING_URL && typeof BOOKING_URL === "string" ? BOOKING_URL : "#contact");
+
 /* ---------- Reviews helpers ---------- */
 function Stars({ value = 0 }) {
   const full = Math.round(value);
@@ -51,6 +54,13 @@ export default function Page() {
 
   return (
     <main>
+      {/* PHONE-BOOKING-BAR */}
+      <div className="bg-slate-900 text-slate-100">
+        <div className="container py-2 text-sm flex items-center justify-between gap-4">
+          <a href="tel:+19704534244" className="hover:underline">(970) 453-4244</a>
+          <a href={getBookingHref()} className="btn-contrast">Schedule Online</a>
+        </div>
+      </div>
 
       {/* JSON-LD LocalBusiness */}
       <script
@@ -64,7 +74,7 @@ export default function Page() {
             "image": ["https://treeline.dental/hero.jpg"],
             "@id": "https://treeline.dental/#business",
             "url": "https://treeline.dental/",
-            "telephone": "(970) XXX-XXXX",
+            "telephone": "(970) 453-4244",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "235 S Ridge St #2B",
@@ -119,7 +129,7 @@ export default function Page() {
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight">Experience Exceptional Care with an Extraordinary View</h1>
             <p className="mt-4 text-lg text-slate-100">Same‑day crowns, family care, and esthetics powered by modern technology and mountain‑town warmth.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#contact" className="btn-contrast">Request Appointment</a>
+              <a href={getBookingHref()} className="btn-contrast">Request Appointment</a>
               <a href="#services" className="btn-secondary">Explore Services</a>
             </div>
           </div>
@@ -158,7 +168,7 @@ export default function Page() {
                 {o.includes.map((i)=> <li key={i}>• {i}</li>)}
               </ul>
               <p className="mt-3 text-xs text-slate-500">{o.note}</p>
-              <a href="#contact" className="mt-6 btn-primary">Claim Offer</a>
+              <a href={getBookingHref()} className="mt-6 btn-primary">Claim Offer</a>
             </div>
           ))}
         </div>
@@ -175,46 +185,78 @@ export default function Page() {
           <p className="mt-2 text-slate-600">Comprehensive care for every smile — preventive, restorative, cosmetic, and beyond.</p>
         </div>
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-<a key="preventative-diagnostic" href="/services/preventative-diagnostic" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Preventative & Diagnostic</h3>
-  <p className="mt-2 text-slate-600 text-sm">Removes tartar and plaque above the gum line. These cleanings are the best way to keep your smile healthy. Regular checkups allow early detection and conservative treatment.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="gum-disease" href="/services/gum-disease" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Gum Disease</h3>
-  <p className="mt-2 text-slate-600 text-sm">Periodontal disease, also known as gum disease, can have significant effects on your body. It’s a transmissible chronic bacterial infection and the leading cause of tooth loss in the US.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="family-dentist" href="/services/family-dentist" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Family Dentist</h3>
-  <p className="mt-2 text-slate-600 text-sm">We see kiddos! We know dental anxiety affects patients of all ages. We help ease your children into the process while creating a safe and relaxing environment.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="same-day-services" href="/services/same-day-services" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Same-Day Services</h3>
-  <p className="mt-2 text-slate-600 text-sm">We live in busy times and most people don’t have the extra time to make multiple visits. We work hard to be efficient so you can spend your time doing other things, like enjoying your life.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="in-house-cerec-crowns" href="/services/in-house-cerec-crowns" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">In-House CEREC Crowns</h3>
-  <p className="mt-2 text-slate-600 text-sm">In most cases, we fabricate crowns in-office in less than an hour. This technology eliminates the waste associated with traditional fabrication of dental restorations.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="dental-implants" href="/services/dental-implants" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Dental Implants</h3>
-  <p className="mt-2 text-slate-600 text-sm">Dental implants are the gold standard for replacing lost dentition and the most predictively successful therapy in dentistry.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="sleep-related-conditions" href="/services/sleep-related-conditions" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Sleep-Related Conditions</h3>
-  <p className="mt-2 text-slate-600 text-sm">Obstructive Sleep Apnea can be responsible for many conditions, like chronic fatigue syndrome, anxiety, depression, high blood pressure, heart disease, and many others. It has also been linked to ADD and ADHD.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
-<a key="facial-esthetics" href="/services/facial-esthetics" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
-  <h3 className="text-xl font-semibold text-slate-900">Facial Esthetics</h3>
-  <p className="mt-2 text-slate-600 text-sm">We offer several facial rejuvenation therapies, including fillers, PDO threads, lip enhancement, cheek enhancement, neck tightening, and wrinkle reduction.</p>
-  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
-</a>
+          <a key="preventative-diagnostic" href="/services/preventative-diagnostic" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/preventative-diagnostic.jpg alt="Preventative & Diagnostic" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Preventative & Diagnostic</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="gum-disease" href="/services/gum-disease" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/gum-disease.jpg alt="Gum Disease" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Gum Disease</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="family-dentist" href="/services/family-dentist" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/family-dentist.jpg alt="Family Dentist" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Family Dentist</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="same-day-services" href="/services/same-day-services" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/same-day-services.jpg alt="Same-Day Services" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Same-Day Services</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="in-house-cerec-crowns" href="/services/in-house-cerec-crowns" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/in-house-cerec-crowns.jpg alt="In-House CEREC Crowns" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">In-House CEREC Crowns</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="dental-implants" href="/services/dental-implants" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/dental-implants.jpg alt="Dental Implants" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Dental Implants</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="sleep-related-conditions" href="/services/sleep-related-conditions" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/sleep-related-conditions.jpg alt="Sleep-Related Conditions" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Sleep-Related Conditions</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
+          <a key="facial-esthetics" href="/services/facial-esthetics" className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">
+            <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+              <img src=/services/facial-esthetics.jpg alt="Facial Esthetics" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-slate-900">Facial Esthetics</h3>
+              <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+            </div>
+          </a>
 
         </div>
       </section>
@@ -241,7 +283,7 @@ export default function Page() {
                     <ul className="mt-4 space-y-2 text-slate-700 text-sm">
                       {d.bullets.map((b)=> <li key={b}>• {b}</li>)}
                     </ul>
-                    <a href="#contact" className="mt-6 btn-primary">
+                    <a href={getBookingHref()} className="mt-6 btn-primary">
                       Schedule with {d.name.split(' ')[1]}
                     </a>
                   </div>
@@ -310,7 +352,7 @@ export default function Page() {
         <div className="container py-16">
           <div className="max-w-2xl">
             <h2 className="text-3xl font-semibold">Request an appointment</h2>
-            <p className="mt-2 text-slate-600">Fill out the form and our team will reach out to confirm a time that works for you.</p>
+            <p className="mt-2 text-slate-600">Fill out the form and our team will reach out to confirm a time that works for you. Prefer to call? <a className="underline" href="tel:+19704534244">(970) 453-4244</a>.</p>
           </div>
           <form className="mt-8 grid gap-4 sm:grid-cols-2 bg-white p-6 rounded-2xl border border-slate-200 shadow">
             <div>
@@ -361,8 +403,8 @@ export default function Page() {
           </div>
           <div>
             <p className="font-semibold">Contact</p>
-            <p className="text-sm text-slate-400 mt-2">(970) XXX‑XXXX<br/>hello@treeline.dental</p>
-            <a href="#contact" className="mt-3 btn-primary">Schedule Online</a>
+            <p className="text-sm text-slate-400 mt-2">(970) 453‑4244<br/>hello@treeline.dental</p>
+            <a href={getBookingHref()} className="mt-3 btn-primary">Schedule Online</a>
           </div>
         </div>
         <div className="border-t border-slate-800 py-6 text-center text-xs text-slate-500">© {new Date().getFullYear()} Treeline Dental. All rights reserved.</div>

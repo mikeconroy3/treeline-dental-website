@@ -20,10 +20,11 @@ export default function ServicesPage() {
       <p className="mt-2 text-slate-600 max-w-2xl">Comprehensive care for every smile — preventive, restorative, cosmetic, and beyond.</p>
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((s) => (
-          <a key={s.slug} href={`/services/${s.slug}`} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+          <a key={s.slug} href={`/services/${s.slug}`} className="rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-card transition-shadow overflow-hidden">    <div className="aspect-[16/10] bg-slate-100 overflow-hidden">      <img src={`/services/${"{s.slug}"}.jpg`} alt={s.title} className="h-full w-full object-cover" />    </div>    <div className="p-6">
             <h2 className="text-xl font-semibold text-slate-900">{s.title}</h2>
             <p className="mt-2 text-slate-600 text-sm">{s.summary}</p>
             <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+    </div>
           </a>
         ))}
       </div>
