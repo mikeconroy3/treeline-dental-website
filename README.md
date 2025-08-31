@@ -22,3 +22,14 @@ Redeploy after adding/updating env vars.
 - `public/treeline-logo.png`      → your logo (already included from your upload)
 - `public/services/*.jpg`         → 6 service images
 - `public/doctor1.jpg`, `doctor2.jpg` → doctor portraits
+
+
+## IMPORTANT — Fix for 'API keys with referer restrictions cannot be used with this API'
+- In Vercel → Environment Variables, set **GOOGLE_PLACES_SERVER_KEY** to a key with **NO Application restriction** (or IP), and **API restriction = Places API**.
+- Do NOT use a referrer-restricted browser key for server calls.
+- Redeploy, then test `/api/reviews?debug=1` again.
+
+## Crawl Readiness
+- **robots.txt** is served by `app/robots.js` with `Allow: /`, and points to your sitemap.
+- **sitemap.xml** is served by `app/sitemap.js`. Currently includes `/` (single-page). Add more URLs as you create subpages.
+- Optional: set `NEXT_PUBLIC_SITE_URL` in Vercel to your canonical domain (e.g., `https://treeline.dental`) so robots/sitemap use the right base URL.

@@ -51,6 +51,53 @@ export default function Page() {
 
   return (
     <main>
+
+      {/* JSON-LD LocalBusiness */}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Treeline Dental",
+            "image": ["https://treeline.dental/hero.jpg"],
+            "@id": "https://treeline.dental/#business",
+            "url": "https://treeline.dental/",
+            "telephone": "(970) XXX-XXXX",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "235 S Ridge St #2B",
+              "addressLocality": "Breckenridge",
+              "addressRegion": "CO",
+              "postalCode": "80424",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 39.4817,
+              "longitude": -106.0384
+            },
+            "openingHoursSpecification": [{
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
+              "opens": "08:00",
+              "closes": "17:00"
+            }],
+            "priceRange": "$$",
+            "sameAs": [
+              "https://www.facebook.com/",
+              "https://www.instagram.com/"
+            ],
+            "aggregateRating": (rating && count) ? {
+              "@type": "AggregateRating",
+              "ratingValue": Number(rating).toFixed(1),
+              "reviewCount": count
+            } : undefined
+          })
+        }}
+      />
+    
       {/* Hero with centered logo */}
       <section className="relative isolate overflow-hidden min-h-[80vh]">
         <Image
@@ -118,33 +165,61 @@ export default function Page() {
       </section>
 
       {/* Services (OG-style cards) */}
+      
+      {/* Services Section (cleaned up) */}
+      
+      {/* Services Section (subpages linked) */}
       <section id="services" className="container py-16">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-semibold">Comprehensive, modern dentistry</h2>
-          <p className="mt-2 text-slate-600">General, restorative, cosmetic, emergency, pediatric, and periodontal care—delivered with precision and comfort.</p>
+          <h2 className="text-3xl font-semibold">Our Services</h2>
+          <p className="mt-2 text-slate-600">Comprehensive care for every smile — preventive, restorative, cosmetic, and beyond.</p>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {title:"Emergency Dentistry",desc:"If you’re in pain, we prioritize same‑day care.",img:"/services/emergency.jpg"},
-            {title:"Cosmetic Dentistry",desc:"Veneers, whitening, bonding for confident smiles.",img:"/services/cosmetic.jpg"},
-            {title:"Preventive Dentistry",desc:"Cleanings, exams, and education for all ages.",img:"/services/preventive.jpg"},
-            {title:"Restorative Dentistry",desc:"Fillings, CEREC crowns, implants, and more.",img:"/services/restorative.jpg"},
-            {title:"Sedation Options",desc:"Relaxed visits with safe, tailored sedation.",img:"/services/sedation.jpg"},
-            {title:"Pediatric Dentistry",desc:"Gentle, fun visits for kids and teens.",img:"/services/pediatric.jpg"},
-          ].map((s) => (
-            <div key={s.title} className="card card-hover overflow-hidden">
-              <div className="aspect-[16/10] overflow-hidden">
-                <img src={s.img} alt="" className="h-full w-full object-cover" />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold">{s.title}</h3>
-                <p className="mt-1 text-sm text-slate-600">{s.desc}</p>
-                <a href="#contact" className="mt-4 inline-flex text-sm font-medium text-brand-700 hover:text-brand-800">Learn more →</a>
-              </div>
-            </div>
-          ))}
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<a key="preventative-diagnostic" href="/services/preventative-diagnostic" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Preventative & Diagnostic</h3>
+  <p className="mt-2 text-slate-600 text-sm">Removes tartar and plaque above the gum line. These cleanings are the best way to keep your smile healthy. Regular checkups allow early detection and conservative treatment.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="gum-disease" href="/services/gum-disease" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Gum Disease</h3>
+  <p className="mt-2 text-slate-600 text-sm">Periodontal disease, also known as gum disease, can have significant effects on your body. It’s a transmissible chronic bacterial infection and the leading cause of tooth loss in the US.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="family-dentist" href="/services/family-dentist" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Family Dentist</h3>
+  <p className="mt-2 text-slate-600 text-sm">We see kiddos! We know dental anxiety affects patients of all ages. We help ease your children into the process while creating a safe and relaxing environment.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="same-day-services" href="/services/same-day-services" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Same-Day Services</h3>
+  <p className="mt-2 text-slate-600 text-sm">We live in busy times and most people don’t have the extra time to make multiple visits. We work hard to be efficient so you can spend your time doing other things, like enjoying your life.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="in-house-cerec-crowns" href="/services/in-house-cerec-crowns" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">In-House CEREC Crowns</h3>
+  <p className="mt-2 text-slate-600 text-sm">In most cases, we fabricate crowns in-office in less than an hour. This technology eliminates the waste associated with traditional fabrication of dental restorations.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="dental-implants" href="/services/dental-implants" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Dental Implants</h3>
+  <p className="mt-2 text-slate-600 text-sm">Dental implants are the gold standard for replacing lost dentition and the most predictively successful therapy in dentistry.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="sleep-related-conditions" href="/services/sleep-related-conditions" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Sleep-Related Conditions</h3>
+  <p className="mt-2 text-slate-600 text-sm">Obstructive Sleep Apnea can be responsible for many conditions, like chronic fatigue syndrome, anxiety, depression, high blood pressure, heart disease, and many others. It has also been linked to ADD and ADHD.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+<a key="facial-esthetics" href="/services/facial-esthetics" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-card transition-shadow">
+  <h3 className="text-xl font-semibold text-slate-900">Facial Esthetics</h3>
+  <p className="mt-2 text-slate-600 text-sm">We offer several facial rejuvenation therapies, including fillers, PDO threads, lip enhancement, cheek enhancement, neck tightening, and wrinkle reduction.</p>
+  <span className="mt-3 inline-flex text-sm font-medium text-brand-700">Learn more →</span>
+</a>
+
         </div>
       </section>
+
+
 
       {/* Our Doctors */}
       <section id="doctor" className="bg-slate-50">
@@ -178,14 +253,13 @@ export default function Page() {
       </section>
 
       {/* Reviews Section (server-powered) */}
+      
+      {/* Reviews Section (server-powered, carousel) */}
       <section id="reviews" className="container py-16">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-3xl font-semibold">What patients are saying</h2>
             <p className="mt-2 text-slate-600">Pulled live from Google — Latest Reviews.</p>
-            <p className="mt-1 text-xs text-slate-500">
-              Troubleshoot: <a className="underline" href="/api/reviews?debug=1" target="_blank">/api/reviews?debug=1</a>
-            </p>
           </div>
           <div className="text-base text-slate-700 flex items-center gap-2">
             <div className="hidden sm:block"><Stars value={rating || 0} /></div>
@@ -197,34 +271,39 @@ export default function Page() {
         <div className="mt-8">
           {error ? (
             <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
-              Couldn’t load Google reviews. Check env vars, billing, and restrictions. See <code>/api/reviews?debug=1</code> and Vercel function logs.
+              Couldn’t load Google reviews. Please check configuration.
             </div>
           ) : loading ? (
             <div className="rounded-xl border border-slate-200 p-6 text-sm text-slate-600">Loading reviews…</div>
           ) : !reviews || reviews.length === 0 ? (
-            <p className="text-slate-600">No reviews returned by Google. Verify Place ID or API access.</p>
+            <p className="text-slate-600">No reviews returned by Google.</p>
           ) : (
-            <div className="rounded-2xl bg-white p-6 shadow-sm border border-brand-50">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-slate-200 overflow-hidden"/>
-                  <div>
-                    <p className="font-semibold text-slate-900">{reviews[0]?.author_name}</p>
-                    <div className="flex items-center gap-2 text-sm text-slate-500">
-                      <Stars value={reviews[0]?.rating || 0} />
-                      {reviews[0]?.time ? <span>{new Date(reviews[0].time * 1000).toLocaleDateString()}</span> : null}
+            <div className="relative">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {reviews.map((r, i) => (
+                  <div key={i} className="rounded-2xl bg-white p-6 shadow-sm border border-brand-50">
+                    <div className="flex items-center gap-3">
+                      <img src={r.profile_photo_url || '/avatar.png'} alt="" className="h-10 w-10 rounded-full object-cover bg-slate-200"/>
+                      <div>
+                        <p className="font-semibold text-slate-900">{r.author_name}</p>
+                        <div className="flex items-center gap-2 text-sm text-slate-500">
+                          <Stars value={r.rating || 0} />
+                          <span>{r.relative_time_description || ''}</span>
+                        </div>
+                      </div>
                     </div>
+                    <blockquote className="mt-4 text-slate-700">“{r.text}”</blockquote>
+                    {r.author_url ? (
+                      <a href={r.author_url} target="_blank" className="mt-3 inline-flex text-sm font-medium text-brand-700 hover:text-brand-800">View on Google →</a>
+                    ) : null}
                   </div>
-                </div>
-                {reviews[0]?.author_url ? (
-                  <a href={reviews[0].author_url} target="_blank" className="text-sm text-brand-700 hover:text-brand-800">View on Google →</a>
-                ) : null}
+                ))}
               </div>
-              <blockquote className="mt-4 text-slate-700">“{reviews[0]?.text}”</blockquote>
             </div>
           )}
         </div>
       </section>
+
 
       {/* Contact (simple form markup) */}
       <section id="contact" className="bg-slate-50">
